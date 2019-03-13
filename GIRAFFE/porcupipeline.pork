@@ -19,10 +19,19 @@
     {
       "from": "b0599e12-6f21-49af-bf46-7bb03b3f7b88",
       "to": "2a6cec59-4268-486e-9cc8-d3fe3666e6f4"
+    },
+    {
+      "from": "31da7d3a-7094-4ef9-b051-d619620aec0d",
+      "to": "22054f49-60f4-40fe-94ef-6ee72b08ffcc"
+    },
+    {
+      "from": "bd8fc391-b0fc-4316-97d9-7b16dd7f7477",
+      "to": "b564cb5c-cf9d-4eb2-971e-cb1a517792a5"
     }
   ],
   "nodes": [
     {
+      "toolbox": "Nipype",
       "name": "utility_IdentityInterface",
       "class": "utility.IdentityInterface",
       "category": [
@@ -58,7 +67,7 @@
         }
       ],
       "position": [
-        -1148.595332548447,
+        -1150.1702226851658,
         -176.23540993356164
       ],
       "code": [
@@ -80,6 +89,7 @@
       "web_url": "https://nipype.readthedocs.io/en/latest/interfaces/generated/interfaces.utility/base.html#identityinterface"
     },
     {
+      "toolbox": "Nipype",
       "name": "io_SelectFiles",
       "class": "io.SelectFiles",
       "category": [
@@ -201,6 +211,7 @@
       "web_url": "https://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.io.html#selectfiles"
     },
     {
+      "toolbox": "Nipype",
       "name": "fsl_BET",
       "class": "fsl.BET",
       "category": [
@@ -661,6 +672,7 @@
       "web_url": "https://nipype.readthedocs.io/en/latest/interfaces/generated/interfaces.fsl/preprocess.html#bet"
     },
     {
+      "toolbox": "Nipype",
       "name": "spm_Realign",
       "class": "spm.Realign",
       "category": [
@@ -991,6 +1003,7 @@
       "web_url": "https://nipype.readthedocs.io/en/latest/interfaces/generated/interfaces.spm/preprocess.html#realign"
     },
     {
+      "toolbox": "Nipype",
       "name": "fsl_FLIRT",
       "class": "fsl.FLIRT",
       "category": [
@@ -1709,6 +1722,231 @@
         }
       ],
       "web_url": "https://nipype.readthedocs.io/en/latest/interfaces/generated/interfaces.fsl/preprocess.html#flirt"
+    },
+    {
+      "name": "io_DataSink",
+      "class": "io.DataSink",
+      "category": [
+        "io"
+      ],
+      "ports": [
+        {
+          "base": "base_directory",
+          "editable": true,
+          "id": "dfaeb37d-776a-4a92-87b2-5ed9e0f23a9c",
+          "input": true,
+          "inputPort": "dd28de3c-2c0e-4f90-b738-20555ac753d0",
+          "name": "base_directory",
+          "output": false,
+          "outputPort": false,
+          "value": "'/project/3015003.04/FamTutorial/Results/'",
+          "visible": false,
+          "iterator": false
+        },
+        {
+          "base": "container",
+          "editable": true,
+          "id": "68ae971d-919f-4438-8a52-1ef2f058b8ef",
+          "input": true,
+          "inputPort": "d2c174c2-4f33-401c-b782-11334dfbe194",
+          "name": "container",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": false,
+          "iterator": false
+        },
+        {
+          "base": "parameterization",
+          "editable": true,
+          "id": "26ee170e-62f3-4f33-8f9e-f6766ba50349",
+          "input": true,
+          "inputPort": "01ab74ca-1b0e-43ad-848e-6a265e11eefd",
+          "name": "parameterization",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": false,
+          "iterator": false
+        },
+        {
+          "base": "strip_dir",
+          "editable": true,
+          "id": "1b0011d7-2805-49be-826c-c01a54e99340",
+          "input": true,
+          "inputPort": "0864ab4a-2930-4906-99f4-1d2a42787c06",
+          "name": "strip_dir",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": false,
+          "iterator": false
+        },
+        {
+          "base": "substitutions",
+          "editable": true,
+          "id": "26b4df50-e0b4-42a5-a1c6-174a462d07d6",
+          "input": true,
+          "inputPort": "cd618b22-114c-45e6-8a46-540fb934234e",
+          "name": "substitutions",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": false,
+          "iterator": false
+        },
+        {
+          "base": "regexp_substitutions",
+          "editable": true,
+          "id": "f1f350b4-0ea7-4497-af6f-24f989b0178d",
+          "input": true,
+          "inputPort": "97afc735-85c7-4f00-a77a-b39c2756c327",
+          "name": "regexp_substitutions",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": false,
+          "iterator": false
+        },
+        {
+          "base": "_outputs",
+          "editable": true,
+          "id": "288404a3-aa35-4e59-8f1e-706b807bbb12",
+          "input": true,
+          "inputPort": "2f9731b7-af73-4eb1-98b3-fec882931c4c",
+          "name": "_outputs",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": false,
+          "iterator": false
+        },
+        {
+          "base": "remove_dest_dir",
+          "editable": true,
+          "id": "0ad0db1e-0eff-4f83-bf40-e334f4d18df9",
+          "input": true,
+          "inputPort": "6befefa1-2fec-40f7-a7dc-235da54a8f6f",
+          "name": "remove_dest_dir",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": false,
+          "iterator": false
+        },
+        {
+          "base": "creds_path",
+          "editable": true,
+          "id": "ff3b09bf-d84a-412f-a3bb-8d23327ba4b1",
+          "input": true,
+          "inputPort": "75db931b-1154-40e0-aa69-df7f28aa0537",
+          "name": "creds_path",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": false,
+          "iterator": false
+        },
+        {
+          "base": "encrypt_bucket_keys",
+          "editable": true,
+          "id": "9e52872c-49cf-4bf0-bd9c-d055da6ce7de",
+          "input": true,
+          "inputPort": "dce9f854-b899-4027-991f-3dd189e5396c",
+          "name": "encrypt_bucket_keys",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": false,
+          "iterator": false
+        },
+        {
+          "base": "bucket",
+          "editable": true,
+          "id": "05b42db3-8c91-49f6-81da-b73c6e024ee8",
+          "input": true,
+          "inputPort": "ebcea5c0-d37a-4691-94bf-86906d7e4313",
+          "name": "bucket",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": false,
+          "iterator": false
+        },
+        {
+          "base": "local_copy",
+          "editable": true,
+          "id": "43331dc8-3499-4b3b-8503-a6905150713f",
+          "input": true,
+          "inputPort": "98cf4f96-65e9-4899-a63d-db67dde3b575",
+          "name": "local_copy",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": false,
+          "iterator": false
+        },
+        {
+          "base": "out_file",
+          "editable": false,
+          "id": "59a567d4-b4a0-4ed8-a78a-575e340a50f6",
+          "input": false,
+          "inputPort": false,
+          "name": "out_file",
+          "output": true,
+          "outputPort": "e814dd0d-3f71-4153-bbf8-c2f99853f969",
+          "value": "",
+          "visible": true,
+          "iterator": false
+        },
+        {
+          "base": "registered",
+          "editable": true,
+          "id": "aa23950f-6905-460e-9ac7-c87646402443",
+          "input": true,
+          "inputPort": "22054f49-60f4-40fe-94ef-6ee72b08ffcc",
+          "name": "registered",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": true,
+          "iterator": false
+        },
+        {
+          "base": "realigned",
+          "editable": true,
+          "id": "404feb97-964d-4464-a0c9-1a1cdd2eaa63",
+          "input": true,
+          "inputPort": "b564cb5c-cf9d-4eb2-971e-cb1a517792a5",
+          "name": "realigned",
+          "output": false,
+          "outputPort": false,
+          "value": "",
+          "visible": true,
+          "iterator": false
+        }
+      ],
+      "position": [
+        333.79987098868344,
+        91.91435431451396
+      ],
+      "code": [
+        {
+          "language": "Nipype",
+          "comment": "Generic datasink module to store structured outputs",
+          "argument": {
+            "name": "io.DataSink()",
+            "import": "import nipype.interfaces.io as io"
+          }
+        },
+        {
+          "language": "Docker",
+          "argument": {
+            "name": "io"
+          }
+        }
+      ],
+      "web_url": "https://nipype.readthedocs.io/en/latest/interfaces/generated/nipype.interfaces.io.html#datasink"
     }
   ],
   "version": "v1"

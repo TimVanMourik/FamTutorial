@@ -16,7 +16,7 @@ utility_IdentityInterface.inputs.subject = ['01', '02', '03']
 utility_IdentityInterface.inputs.run = [1, 2]
 
 #Flexibly collect data from disk to feed into workflows.
-io_SelectFiles = pe.MapNode(io.SelectFiles(templates={'anatomical':'Subject{subj_id}/Anatomical/anat.nii.gz','functional':'Subject{subj_id}/Functional/rEP3D_Session*.nii'}), name='io_SelectFiles')
+io_SelectFiles = pe.Node(io.SelectFiles(templates={'anatomical':'Subject{subj_id}/Anatomical/anat.nii.gz','functional':'Subject{subj_id}/Functional/rEP3D_Session*.nii'}), name='io_SelectFiles')
 io_SelectFiles.inputs.base_directory = '/project/3015003.04/FamTutorial/SubjectData/'
 io_SelectFiles.inputs.anatomical = 'Subject{subj_id}/Anatomical/anat.nii.gz'
 io_SelectFiles.inputs.functional = 'Subject{subj_id}/Functional/rEP3D_Session*.nii'
@@ -30,6 +30,10 @@ spm_Realign = pe.Node(interface = spm.Realign(), name='spm_Realign')
 #Wraps the executable command ``flirt``.
 fsl_FLIRT = pe.Node(interface = fsl.FLIRT(), name='fsl_FLIRT')
 
+#Generic datasink module to store structured outputs
+io_DataSink = pe.Node(interface = io.DataSink(), name='io_DataSink')
+io_DataSink.inputs.base_directory = '/project/3015003.04/FamTutorial/Results/'
+
 #Create a workflow to connect all those nodes
 analysisflow = nipype.Workflow('MyWorkflow')
 analysisflow.connect(io_SelectFiles, "functional", spm_Realign, "in_files")
@@ -37,6 +41,8 @@ analysisflow.connect(io_SelectFiles, "anatomical", fsl_BET, "in_file")
 analysisflow.connect(utility_IdentityInterface, "subject", io_SelectFiles, "subj_id")
 analysisflow.connect(fsl_BET, "out_file", fsl_FLIRT, "in_file")
 analysisflow.connect(spm_Realign, "mean_image", fsl_FLIRT, "reference")
+analysisflow.connect(fsl_FLIRT, "out_file", io_DataSink, "registered")
+analysisflow.connect(spm_Realign, "realigned_files", io_DataSink, "realigned")
 
 #Run the workflow
 plugin = 'MultiProc' #adjust your desired plugin here
