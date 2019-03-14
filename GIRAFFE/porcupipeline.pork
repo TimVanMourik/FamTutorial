@@ -115,20 +115,20 @@
         {
           "base": "subj_id",
           "editable": true,
-          "id": "6eeac10e-80bd-43d1-828d-58479d9a4e7b",
+          "id": "799f701e-f5a9-467e-9b07-f7a92e6f70cc",
           "input": true,
-          "inputPort": "38d543e1-0b5e-4bbd-b601-fcf3df304b00",
+          "inputPort": "9e0c53fd-ec53-4bb7-be21-60898d54b838",
           "name": "subj_id",
-          "output": true,
-          "outputPort": "e0b6a9c1-7788-4541-a177-747665c5df13",
+          "output": false,
+          "outputPort": false,
           "value": "['01', '02', '03']",
           "visible": true,
           "iterator": true
         }
       ],
       "position": [
-        -665.1810839750066,
-        -192.8967644571216
+        -663.9983447171941,
+        -181.06972283114504
       ],
       "code": [
         {
@@ -629,7 +629,7 @@
           "outputPort": false,
           "value": "",
           "visible": true,
-          "iterator": false
+          "iterator": true
         },
         {
           "base": "jobtype",

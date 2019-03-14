@@ -10,7 +10,7 @@ import nipype.interfaces.fsl as fsl
 import nipype.interfaces.spm as spm
 
 #Flexibly collect data from disk to feed into workflows.
-io_SelectFiles = pe.Node(io.SelectFiles(templates={'anatomical':'Subject{subj_id}/Anatomical/anat.nii.gz','functional':'Subject{subj_id}/Functional/rEP3D_Session*.nii','subj_id':['01', '02', '03']}), name='io_SelectFiles')
+io_SelectFiles = pe.Node(io.SelectFiles(templates={'anatomical':'Subject{subj_id}/Anatomical/anat.nii.gz','functional':'Subject{subj_id}/Functional/rEP3D_Session*.nii'}), name='io_SelectFiles')
 io_SelectFiles.inputs.base_directory = '/project/3015003.04/FamTutorial/SubjectData/'
 io_SelectFiles.inputs.anatomical = 'Subject{subj_id}/Anatomical/anat.nii.gz'
 io_SelectFiles.inputs.functional = 'Subject{subj_id}/Functional/rEP3D_Session*.nii'
@@ -20,7 +20,7 @@ io_SelectFiles.iterables = [('subj_id', ['01', '02', '03'])]
 fsl_BET = pe.Node(interface = fsl.BET(), name='fsl_BET')
 
 #Use spm_realign for estimating within modality rigid body alignment
-spm_Realign = pe.Node(interface = spm.Realign(), name='spm_Realign')
+spm_Realign = pe.MapNode(interface = spm.Realign(), name='spm_Realign', iterfield = ['in_files'])
 
 #Wraps the executable command ``flirt``.
 fsl_FLIRT = pe.Node(interface = fsl.FLIRT(), name='fsl_FLIRT')
