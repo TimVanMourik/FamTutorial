@@ -10,7 +10,7 @@ import nipype.interfaces.fsl as fsl
 import nipype.interfaces.spm as spm
 
 #Flexibly collect data from disk to feed into workflows.
-io_SelectFiles = pe.Node(io.SelectFiles(templates={'anatomical':'Subject{subj_id}/Anatomical/anat.nii.gz','functional':'Subject{subj_id}/Functional/rEP3D_Session*.nii'}), name='io_SelectFiles', iterfield = ['subj_id']))
+io_SelectFiles = pe.Node(io.SelectFiles(templates={'anatomical':'Subject{subj_id}/Anatomical/anat.nii.gz','functional':'Subject{subj_id}/Functional/rEP3D_Session*.nii'}), name='io_SelectFiles', iterfield = ['subj_id'])
 io_SelectFiles.inputs.base_directory = '/project/3015003.04/FamTutorial/SubjectData/'
 io_SelectFiles.inputs.anatomical = 'Subject{subj_id}/Anatomical/anat.nii.gz'
 io_SelectFiles.inputs.functional = 'Subject{subj_id}/Functional/rEP3D_Session*.nii'
